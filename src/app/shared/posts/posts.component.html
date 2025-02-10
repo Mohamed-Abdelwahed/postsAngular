@@ -1,0 +1,36 @@
+
+
+
+<div class="container" >
+
+    <div class="bg-danger">
+        <h1>
+            {{searchFilter}}
+        </h1>
+    </div>
+
+    <input type="text" [(ngModel)] = "searchFilter">
+    
+    <div class="container row ">
+        <div class="card col-lg-3 m-5" *ngFor="let post of Posts" >
+            <div class="container" *ngIf="post.title.includes(searchFilter.toLocaleLowerCase())" ;else empty">
+                <img src="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg" class="card-img-top " alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.body}}</p>
+              <a  class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>
+          </div>
+    </div>
+
+    <ng-template #empty>
+
+    </ng-template>
+
+    
+   
+    
+</div>
+
+
